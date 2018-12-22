@@ -42,7 +42,7 @@ void main(){
 	color += material_diffuse * light_diffuse * Ndot;
 	
 	// добавление отражённого света
-	float RdotVpow = max(pow(dot(reflect(-lightDir, normal), viewDir), material_shininess), 0.0);
+	float RdotVpow = max(pow(dot(normal, h), material_shininess), 0.0);
 	color += material_specular * light_specular * RdotVpow;
 	color += rimColor * pow ( 1.0 + bias - max ( dot ( normal, viewDir ), 0.0 ), rimPower );
 	

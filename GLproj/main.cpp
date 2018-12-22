@@ -80,9 +80,9 @@ void load_textures() {
 }
 
 void Set_cam() {
-	Matrix_projection = glm::perspective(80.0f, (float)w / h, 0.01f, 200.0f);
+	Matrix_projection = glm::perspective(glm::radians(80.0f), (float)w / h, 0.01f, 200.0f);
 	glm::vec3 center = { 0,0,0 };
-	glm::vec3 up = { 0,0,-1 };
+	glm::vec3 up = { 0,0,1 };
 
 	Matrix_projection *= glm::lookAt(eye, center, up);
 }
@@ -180,10 +180,10 @@ void keyboard(unsigned char key, int x, int y)
 	switch (key)
 	{
 	case 'w':
-		rotateX += 0.1;
+		rotateX -= 0.1;
 		break;
 	case 's':
-		rotateX -= 0.1;
+		rotateX += 0.1;
 		break;
 	case 'a':
 		rotateY -= 0.1;
